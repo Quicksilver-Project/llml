@@ -1,5 +1,14 @@
+# LLML
 
-1 process per line (ladder logic)
+## Ruleset
+* One process per line.
+* All characters must be UTF-8.
+* All processes must be connected.
+* If at any given time there is fewer than two processes running, the model is incomplete.
+* If at any given time there is more than two processes running, the model contains a logical error.
+
+## Defined characters
+```plain
 ; : begin process
 * : instantiate
 = : thread
@@ -13,8 +22,10 @@ X : satisfied
 O : unsatisfied
 > : return
 < : import
+```
 
-Example:
+## Example:
+```
          @QualifierValue
          `*;==========================$
 `!@Property:qualifier[1..1]           &A_qualifier_qualifierValue
@@ -23,3 +34,4 @@ Example:
            `multiplicity_of_qualifier X
            `type_of_qualifier         X
 ;=====================================>qualifierValue
+```
